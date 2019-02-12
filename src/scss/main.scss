@@ -1,0 +1,21 @@
+@import './typography';
+@import './variables';
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+
+    #app {
+        height: inherit;
+        width: inherit;
+
+        & > main {
+            height: inherit;
+            background: $darkblue;
+        }
+
+    }
+
+}
+
