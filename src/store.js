@@ -14,6 +14,9 @@ export default new Vuex.Store({
     selectEvent(state, event){
         state.event = event;
     },
+    setTickets(state, tickets){
+        state.tickets = tickets;
+    },
     setEvents(state, events){
         state.events = events;
     }
@@ -24,6 +27,17 @@ export default new Vuex.Store({
         let events = await axios.get('http://localhost:3000/events');
         ctx.commit('setEvents', events.data);
 
+    },
+    async buy(ctx, buyData){
+        
+        let tickets = await axios.post('http://localhost:3000/tickets', buyData);
+        ctx.commit('setTickets', tickets.data);
+        localStorage.setItem('tickets', JSON.stringify(tickets.data));
+
+    },
+    getTickets(ctx){
+        let tickets = localStorage.getItem('tickets');
+        ctx.commit('setTickets', JSON.parse(tickets));
     }
   }
 })

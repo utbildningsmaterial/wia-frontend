@@ -17,6 +17,11 @@ export default {
       tickets(){
           return this.$store.state.tickets;
       }
+  },
+  beforeMount(){
+      if(localStorage.getItem('tickets')){
+          this.$store.dispatch('getTickets');
+      }
   }
 }
 </script>

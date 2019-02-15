@@ -19,8 +19,8 @@ export default {
     props: ['event'],
     methods: {
         selectEvent(event){
-            console.log(event);
-        this.$store.commit('selectEvent', event);
+            this.$store.commit('selectEvent', event);
+            this.$router.push('/pay');
         }
     }
 }
