@@ -22,6 +22,11 @@ export default {
   },
   components: {
     pager
+  },
+  computed: {
+    ticket(){
+      return this.$store.state.event;
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <article class="event">
+    <article class="event" @click="selectEvent(event)" >
         <aside class="date">{{ event.when.date }}</aside>
         <section class="info">
             <h2>{{ event.name }}</h2>
@@ -16,8 +16,15 @@
 <script>
 export default {
     name: 'event',
-    props: ['event']
+    props: ['event'],
+    methods: {
+        selectEvent(event){
+            console.log(event);
+        this.$store.commit('selectEvent', event);
+        }
+    }
 }
+
 </script>
 
 <style lang="scss">
