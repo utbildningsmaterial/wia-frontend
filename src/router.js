@@ -24,6 +24,11 @@ export default new Router({
       path: '/tickets',
       name: 'tickets',
       component: () => import('./views/Tickets.vue')
+    },
+    {
+      path: '/verify',
+      name: 'verify',
+      component: () => import('./views/Verify.vue')
     }
   ]
 })

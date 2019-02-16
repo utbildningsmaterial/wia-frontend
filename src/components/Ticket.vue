@@ -55,7 +55,7 @@ $baseline: 18px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 30px;
-    grid-template-rows: $baseline*5 $baseline*6 $baseline*4 $baseline*5 $baseline*6;
+    grid-template-rows: auto $baseline*6 $baseline*4 $baseline*5 $baseline*6;
     border-radius: .25rem;
     grid-template-areas: 
     "what what what"
@@ -86,7 +86,7 @@ $baseline: 18px;
 
     h2 {
         margin: 0;
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         padding: .125rem 1rem;
         font-weight: 500;
         color: rgba($color: #000, $alpha: .8);
@@ -106,7 +106,7 @@ $baseline: 18px;
         h1 {
             margin: 0;
             color: $pink;
-            padding: 0 0 0 1rem;
+            padding: 0 0 1rem 1rem;
             font-size: 2rem;
         }
     }
@@ -120,6 +120,7 @@ $baseline: 18px;
     .when {
         grid-area: when;
         background: rgba($color: #000, $alpha: 0.06);
+        overflow: hidden;
     }
 
     .from {

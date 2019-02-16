@@ -53,7 +53,7 @@ export default {
             margin: -0rem 0 0 0;
             padding: 0;
             font-size: 1.4rem;
-            line-height: 1.2rem;
+            line-height: 1.5rem;
             color: white;
             text-shadow: 1px 1px 0 $pink;
         }

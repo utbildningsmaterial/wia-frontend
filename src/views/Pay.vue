@@ -6,7 +6,7 @@
         <p class="when">{{ event.when.date }} {{ event.when.from }} - {{ event.when.to }}</p>
         <p class="where">@ Globen</p>
         <section class="counter">
-          <article class="price">{{ event.price * amount }}</article>
+          <article class="price">{{ event.price * amount }} sek</article>
           <article class="decrese" @click=" amount-- ">
             <img src="../assets/decrese.svg" alt="decrese">
           </article>
@@ -16,6 +16,10 @@
           </article>
         </section>
         <a href="#" class="btn" @click="buy">Take my money!</a>
+        </section>
+        <section class="content" v-if="!event">
+          <p>No ticket selected.</p>
+          <a href="#" class="btn" @click="$router.push('/events')">Go to events</a>
         </section>
         <pager :activeStep="activeStep"/>
     </main>
@@ -91,7 +95,9 @@ export default {
     h1 {
       color: $pink;
       font-size: 2.4rem;
-      margin: 0;
+      text-align: center;
+      line-height: 2.4rem;
+      margin: .5rem 2.6rem;
       text-shadow: 1px 1px 0 rgba($color: #fff, $alpha: .1); 
     }
 
