@@ -5,6 +5,8 @@
       </header>
     <section class="content">
         <section class="verification" v-if="verification">
+            <h1 v-if="verification.verified">Valid</h1>
+            <h1 v-if="!verification.verified">NOT valid</h1>
             {{ verification.msg }}
         </section>
         <section class="form">
@@ -63,6 +65,10 @@ export default {
         font-style: italic;
         padding: 2rem;
         text-align: center;
+
+        h1 {
+            font-size: 1.6rem;
+        }
     }
 
     .form {
