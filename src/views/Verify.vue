@@ -9,7 +9,7 @@
         </section>
         <section class="form">
             <input type="text" name="code" :value="code.toUpperCase()" @input="code = $event.target.value.toUpperCase()" :maxlength="codeLength" />
-            <a href="#" class="verify" @click="verifyTicket" @keyup="toUppercase">Verify code</a>
+            <a href="#" class="verify" @click="verifyTicket">Verify code</a>
         </section>
   </section>
   </main>
@@ -32,11 +32,8 @@ export default {
   methods: {
       verifyTicket(){
           this.$store.dispatch('verifyTicket', this.code);
-      },
-      toUppercase(){
-          this.code = this.code.toUppercase();
       }
-  }
+   }
 }
 </script>
 <style lang="scss">
