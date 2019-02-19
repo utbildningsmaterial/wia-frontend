@@ -5,10 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'App',
-  beforeMount(){
-    this.$store.dispatch('getEvents');
-  }
+  name: 'App'
 }
 </script>
 
