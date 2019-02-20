@@ -26,6 +26,21 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async createEvent(ctx, event){
+
+      try {
+
+        // Post new event
+        await axios.post('http://localhost:3000/events', event);
+
+        // refresh events list
+        ctx.dispatch('getEvents');
+
+      } catch(err) {
+        console.err(err.stack);
+      }
+
+    },
     async getEvents(ctx){
         
         let events = await axios.get('http://localhost:3000/events');

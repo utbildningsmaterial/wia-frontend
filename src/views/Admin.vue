@@ -25,15 +25,15 @@
             </table>
             </section>
             <div class="form">
-                <input type="text" class="name" placeholder="name" />
-                <input type="text" class="venue" placeholder="venue" />
-                <input type="text" class="address" placeholder="address" />
-                <input type="text" class="date" placeholder="date"/>
-                <input type="text" class="time-start" placeholder="time start" />
-                <input type="text" class="time-end" placeholder="time end"/>
-                <input type="text" class="info" placeholder="info"/>
-                <input type="number" class="price" placeholder="price" />
-                <input type="number" class="tickets" placeholder="num of tickets">
+                <input type="text" class="name" placeholder="name" v-model="newEvent.name" />
+                <input type="text" class="venue" placeholder="venue" v-model="newEvent.where.venue" />
+                <input type="text" class="address" placeholder="address" v-model="newEvent.where.adress" />
+                <input type="text" class="date" placeholder="date" v-model="newEvent.when.date"/>
+                <input type="text" class="time-start" placeholder="time start" v-model="newEvent.when.from" />
+                <input type="text" class="time-end" placeholder="time end" v-model="newEvent.when.to"/>
+                <input type="text" class="info" placeholder="info" v-model="newEvent.info"/>
+                <input type="number" class="price" placeholder="price" v-model="newEvent.price" />
+                <input type="number" class="tickets" placeholder="num of tickets" v-model="newEvent.tickets.available">
                 <a href="#" class="btn" @click="createEvent"> Create event!</a>
             </div>
         </section>
@@ -49,20 +49,20 @@ export default {
     data(){
         return {
             newEvent: {      
-                name: '',
+                name: 'ABBA',
                 where: {
-                    venue: '',
-                    adress: ''
+                    venue: 'Trädgårn',
+                    adress: 'Gbggatan 13'
                 },
                 when: {
-                    date: '',
-                    from: '',
-                    to: ''
+                    date: '1 apr',
+                    from: '19.00',
+                    to: '21.00'
                 },
-                info: '',
-                price: '',
+                info: 'Ståplats',
+                price: 699,
                 tickets: {
-                    available: 0,
+                    available: 700,
                     sold: 0
                 }
             }
@@ -72,6 +72,7 @@ export default {
         async createEvent(){
 
             //  createEvents
+            this.$store.dispatch('createEvent', this.newEvent);
 
             // hämta events igen
             this.$store.dispatch('getEvents');
@@ -208,6 +209,10 @@ $baseline: 2.6rem;
                 color: white;
                 @extend %center;
                 text-decoration: none;
+
+                &:hover {
+                    background: rgba($color: $pink, $alpha: .8);
+                }
             }
         }
     }

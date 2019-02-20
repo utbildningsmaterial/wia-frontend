@@ -47,6 +47,7 @@ export default {
   padding: 1rem;
   box-sizing: border-box;
 
+
     header {
         @extend %center;
         flex-direction: column;
@@ -79,6 +80,7 @@ export default {
 
   .content {
     flex: 7;
+    overflow: scroll;
   }
 }
 
